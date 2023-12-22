@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto-select Lekce Submenu at Lavoda
 // @namespace    https://github.com/kofaysi/
-// @version      0.1
+// @version      0.2.1
 // @description  Automatically selects the 'Lekce' submenu after login at https://lavoda.auksys.cz/master/
 // @author       Milan Berta
 // @match        https://lavoda.auksys.cz/master/
@@ -11,16 +11,25 @@
 (function() {
     'use strict';
 
-    // Function to redirect to the Lekce submenu
-    function redirectToLekce() {
-        const currentUrl = window.location.href;
-        const targetUrl = 'https://lavoda.auksys.cz/master/detail_lide.php?zalozka=lekce';
+    // Function to get the base URL from the current URL
+    function getBaseUrl(url) {
+        const urlParts = url.split('/');
+        return urlParts.slice(0, 4).join('/') + '/'; // Gets 'https://domain.com/path/'
+    }
 
-        if (currentUrl === 'https://lavoda.auksys.cz/master/') {
+    // Function to redirect to the Lekce submenu
+    function redirectToLekce(baseUrl) {
+        const currentUrl = window.location.href;
+        const targetUrl = baseUrl + 'detail_lide.php?zalozka=lekce';
+
+        if (currentUrl === baseUrl) {
             window.location.href = targetUrl;
         }
     }
 
+    // Determine the base URL dynamically
+    const baseUrl = getBaseUrl(window.location.href);
+
     // Call the redirect function
-    redirectToLekce();
+    redirectToLekce(baseUrl);
 })();
