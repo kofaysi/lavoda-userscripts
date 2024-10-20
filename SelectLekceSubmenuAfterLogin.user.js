@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Auto-select Lekce Submenu at Lavoda
-// @namespace    https://github.com/kofaysi/lavoda-userscripts/edit/main/SelectLekceSubmenuAfterLogin.user.js
+// @namespace    https://github.com/kofaysi/lavoda-userscripts/blob/main/SelectLekceSubmenuAfterLogin.user.js
 // @version      0.2.3
 // @description  Automatically selects the 'Lekce' submenu after login at https://lavoda.auksys.cz/master/
-// @author       https://github.com/kofaysi/
 // @match        https://lavoda.auksys.cz/master/
+// @author       https://github.com/kofaysi/
 // @grant        none
 // ==/UserScript==
 
